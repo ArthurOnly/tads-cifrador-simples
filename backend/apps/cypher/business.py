@@ -1,4 +1,4 @@
-from constants import cript_dict, decript_dict
+from apps.cypher.constants import cript_dict, decript_dict
 
 
 class CypherHandler:
