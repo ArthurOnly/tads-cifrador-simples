@@ -84,7 +84,7 @@ limit-inference-results=100
 load-plugins=pylint_django
 
 # Pylint django
-django-settings-module=cypher_project.settings
+django-settings-module=cipher_project.settings
 
 # Pickle collected data for later comparisons.
 persistent=yes

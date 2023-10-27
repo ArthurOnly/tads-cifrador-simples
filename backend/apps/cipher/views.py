@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.common.global_drf_render import CustomRenderer
-from apps.cypher.business import CypherHandler
+from apps.cipher.business import CipherHandler
 
 text_param = openapi.Parameter("text", openapi.IN_QUERY, description="Text", type=openapi.TYPE_STRING)
 key_param = openapi.Parameter(
@@ -16,7 +16,7 @@ key_param = openapi.Parameter(
 )
 
 
-class CypherView(APIView):
+class CipherView(APIView):
     renderer_classes = [CustomRenderer]
 
     @swagger_auto_schema(manual_parameters=[text_param, key_param])
@@ -28,10 +28,10 @@ class CypherView(APIView):
         if key == [] or text == "":
             return Response({"result": "Invalid params"}, status=400)
 
-        return Response({"result": CypherHandler(text, key).cypher()})
+        return Response({"result": CipherHandler(text, key).cipher()})
 
 
-class DecypherView(APIView):
+class DecipherView(APIView):
     renderer_classes = [CustomRenderer]
 
     @swagger_auto_schema(manual_parameters=[text_param, key_param])
@@ -43,4 +43,4 @@ class DecypherView(APIView):
         if key == [] or text == "":
             return Response({"result": "Invalid params"}, status=400)
 
-        return Response({"result": CypherHandler(text, key).decypher()})
+        return Response({"result": CipherHandler(text, key).decipher()})

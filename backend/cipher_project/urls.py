@@ -1,4 +1,4 @@
-"""cypher_project URL Configuration
+"""cipher_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -20,14 +20,14 @@ from django.urls import include, path
 from django.views.generic import RedirectView
 
 from apps.common.global_swagger import urlpatterns as swagger_urlpatterns
-from apps.cypher.views import CypherView, DecypherView
+from apps.cipher.views import CipherView, DecipherView
 
 urlpatterns = [
     path("", RedirectView.as_view(url="docs/swagger/")),
     path("admin/", admin.site.urls),
     path("docs/", include(swagger_urlpatterns)),
-    path("api/v1/cypher", CypherView.as_view(), name="cypher"),
-    path("api/v1/decypher", DecypherView.as_view(), name="decypher"),
+    path("api/v1/cipher", CipherView.as_view(), name="cipher"),
+    path("api/v1/decipher", DecipherView.as_view(), name="decipher"),
 ]
 
 # In production should be handled by another tool (nginx, apache, etc)
